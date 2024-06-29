@@ -1,7 +1,7 @@
-# Evinced Playwright JS SDK Example — CommonJS with project test auth
+# Playwright JS SDK example — CommonJS with setup project auth
 
-Illustrates SDK usage with CommonJS modules and SDK authorization in a
-preliminary test project.
+This example illustrates Evinced Playwright JS SDK usage in a CommonJS module
+context with authorization in a setup test project.
 
 ## Authorization
 
