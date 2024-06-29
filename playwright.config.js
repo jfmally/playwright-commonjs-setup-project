@@ -12,10 +12,6 @@ require('dotenv').config()
  */
 module.exports = defineConfig({
   testDir: './tests',
-
-  /* */
-  globalSetup: require.resolve('./global.setup.js'),
-
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -38,18 +34,25 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'auth',
+      testMatch: /auth\.setup\.js/,
+    },
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      dependencies: ['auth'],
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
+      dependencies: ['auth'],
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      dependencies: ['auth'],
     },
   ],
 
