@@ -1,21 +1,21 @@
 // @ts-check
-import { pathToFileURL } from 'node:url'
-import { defineConfig, devices } from '@playwright/test'
+const { defineConfig, devices } = require('@playwright/test')
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// Get enviornment from .env file.
-import 'dotenv/config'
+require('dotenv').config()
 
 /**
- * See https://playwright.dev/docs/test-configuration.
+ * @see https://playwright.dev/docs/test-configuration
  */
-export default defineConfig({
+module.exports = defineConfig({
   testDir: './tests',
-  /* Get Evinced SDK token in globalSetup phase */
-  globalSetup: pathToFileURL('./global.setup.js').pathname,
+
+  /* */
+  globalSetup: require.resolve('./global.setup.js'),
+
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -41,10 +41,12 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
+
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
+
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
