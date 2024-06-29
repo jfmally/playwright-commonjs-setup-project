@@ -1,4 +1,4 @@
-import { setCredentials } from '@evinced/js-playwright-sdk'
+const { setCredentials } = require('@evinced/js-playwright-sdk')
 
 async function globalSetup(config) {
   try {
@@ -6,6 +6,7 @@ async function globalSetup(config) {
       serviceId: process.env.EVINCED_SERVICE_ID,
       secret: process.env.EVINCED_API_KEY,
     })
+    console.log('Evinced SDK is authorized.')
   } catch (error) {
     throw new Error(
       'Evinced SDK authorization failure. Check env EVINCED_SERVICE_ID and EVINCED_API_KEY'
@@ -13,4 +14,4 @@ async function globalSetup(config) {
   }
 }
 
-export default globalSetup
+module.exports = globalSetup

@@ -15,17 +15,6 @@ EVINCED_SERVICE_ID
 EVINCED_API_KEY
 ```
 
-This example requires access and authorization for Evinced Playwright JS SDK. If
-not already available, visit [ to get started. Ensure that you have:
-
-- A path to a local installation of the Evinced Playwright JS SDK,
-  `js-playwright-sdk-{version}.tgz`.
-- The Evinced SDK authorization keys available in
-  [Evinced Product Hub - Web SDK](https://hub.evinced.com/web-sdk) should be set
-  in your enviornment or in a .env file in the project directory.
-  - `EVINCED_SERVICE_ID`
-  - `EVINCED_API_KEY`
-
 ## Installation
 
 A local copy of Evinced SDK must be available as a gzipped tar file. Run NPM or
@@ -58,8 +47,10 @@ npx playwright test
 
 Successful execution should echo the following:
 
-```shell
+```
 > playwright test
+
+Evinced SDK is authorized.
 
 Running 7 tests using 5 workers
   7 passed (7.0s)
@@ -69,8 +60,7 @@ To open last HTML report run:
   npx playwright show-report
 ```
 
-The tests will generate Evinced accessibility reports in HTML format for each
-test:
+Evinced accessibility reports in HTML format should be generated for each test:
 
 - `./test-results/single.html`
 - `./test-results/continuous.html`
